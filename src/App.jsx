@@ -1,13 +1,15 @@
 import { useState } from 'react'
 import './App.css'
-import { Container } from '@chakra-ui/react';
+import { Button, Container } from '@chakra-ui/react';
 import { Quiz } from './components/Quiz';
 
 function App() {
+  const [showQuiz,setShowQuiz] = useState(false);
 
   return (
     <Container>
-      <Quiz />
+      <Button onClick={()=>setShowQuiz((prev)=>!prev)}>Wanna Play Quiz</Button>
+      {showQuiz && <Quiz/>}
     </Container>
   )
 }
